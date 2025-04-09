@@ -1,0 +1,32 @@
+{
+  "members" : [
+    {
+      "firstName": "Hafidz",
+      "lastName": "Naufal",
+      "gender": "male",
+      "age": 20,
+      "nim": "103022300163"
+    },
+    {
+      "firstName": "Hafizryandin",
+      "lastName": "Haykal",
+      "gender": "male",
+      "age": 20,
+      "nim": "103022300158"
+    },
+    {
+      "firstName": "Muhammad",
+      "lastName": "Fathirrizky",
+      "gender": "male",
+      "age": 20,
+      "nim": "103022300009"
+    },
+    {
+      "firstName": "Haidar",
+      "lastName": "Zahran",
+      "gender": "male",
+      "age": 20,
+      "nim": "103022330140"
+    }
+  ]
+}
