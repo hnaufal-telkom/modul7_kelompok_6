@@ -11,5 +11,10 @@ class Program
 
         TeamMembers103022300163 members = new TeamMembers103022300163();
         members.ReadJSON();
+
+        Console.WriteLine("");
+
+        GlossaryItem103022300163 glossary = new GlossaryItem103022300163();
+        glossary.ReadJSON();
     }
 }

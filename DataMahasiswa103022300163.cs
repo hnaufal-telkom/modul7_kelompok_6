@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-class Members {
+class Data {
     [JsonPropertyName("firstName")]
     public String FirstName { get; set; }
     [JsonPropertyName("lastName")]
@@ -10,33 +10,50 @@ class Members {
     public String Gender { get; set; }
     [JsonPropertyName("age")]
     public long Age { get; set; }
-    [JsonPropertyName("nim")]
-    public string Nim { get; set; }
+    [JsonPropertyName("address")]
+    public Address Address { get; set; }
+    [JsonPropertyName("courses")]
+    public Courses[] Courses { get; set; }
 }
-class DataMember
+class Address
 {
-    [JsonPropertyName("members")]
-    public Members[] Members { get; set; }
+    [JsonPropertyName("streetAddress")]
+    public String StreetAddress { get; set; }
+    [JsonPropertyName("city")]
+    public String City { get; set; }
+    [JsonPropertyName("state")]
+    public String State { get; set; }
 }
-class TeamMembers103022300163
+class Courses
 {
+    [JsonPropertyName("code")]
+    public String Code { get; set; }
+    [JsonPropertyName("name")]
+    public String Name { get; set; }
+}
+class DataMahasiswa103022300163 {
 
   public void ReadJSON() {
-        String jsonString = File.ReadAllText("jurnal7_2_103022300163.json");
+        String jsonString = File.ReadAllText("jurnal7_1_103022300163.json");
 
         try
         {
-            DataMember data = JsonSerializer.Deserialize<DataMember>(jsonString);
+            Data data = JsonSerializer.Deserialize<Data>(jsonString);
 
             if (data == null)
             {
                 Console.WriteLine("Gagal membaca JSON");
             }
 
-            Console.WriteLine("Team member list:");
-            foreach (Members member in data.Members)
+            Console.WriteLine("[[ Data Mahasiswa ]]");
+            Console.WriteLine($"Nama\t: {data.FirstName} {data.LastName}");
+            Console.WriteLine($"Gender\t: {data.Gender}");
+            Console.WriteLine($"Umur\t: {data.Age}");
+            Console.WriteLine($"Alamat\t: Jalan {data.Address.StreetAddress}, {data.Address.City}, {data.Address.State}\n");
+            Console.WriteLine("Mata Kuliah yang sedang diikuti:");
+            foreach (Courses course in data.Courses)
             {
-                Console.WriteLine($"{member.Nim} {member.FirstName} {member.LastName} ({member.Age} {member.Nim})");
+                Console.WriteLine($"- {course.Code} - {course.Name}");
             }
         } catch (Exception e)
         {
